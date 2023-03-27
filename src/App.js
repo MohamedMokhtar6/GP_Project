@@ -1,3 +1,4 @@
+import 'devextreme/dist/css/dx.light.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FooterBar from "./Components/util/FooterBar";
@@ -13,12 +14,14 @@ import AdminCreateModelPage from "./Pages/Admin/AdminCreateModelPage";
 import AdminCreateQuizPage from "./Pages/Admin/AdminCreateQuizPage";
 import AdminCreateTutorialPage from "./Pages/Admin/AdminCreateTutorialPage";
 import AdminCreateUserPage from "./Pages/Admin/AdminCreateUserPage";
-import Courses from './Components/components/Courses'
 import HomePage from "./Pages/Home/HomePage";
 import LoginPage from "./Pages/auth/LoginPage";
 import SignUpPage from "./Pages/auth/SignUpPage";
-import CoursePage from "./Pages/Course/CoursePage";
 import About from "./Pages/About/About";
+import SvmPage from "./Pages/Course/Svm/SvmPage";
+import DecisionTreePage from "./Pages/Course/DecisionTree/DecisionTreePage";
+import Tutorials from "./Components/Coursess/Tutorials";
+import KNearestNeighborPage from "./Pages/Course/KNearestNeighbor/KNearestNeighborPage";
 
 
 
@@ -44,10 +47,13 @@ function App() {
           <Route path="/admin/createmodel" element={<AdminCreateModelPage />} />
           <Route path="/admin/createlearningpath" element={<AdminCreateLearningPathPage />} />
           <Route path="/admin/createquiz" element={<AdminCreateQuizPage />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/course/:id" element={<CoursePage />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/courses" element={<Tutorials />} />
 
+
+          <Route path="/courses/svm" element={<SvmPage />} />
+          <Route path="/courses/decisionTree" element={<DecisionTreePage />} />
+          <Route path="/courses/kNearestNeighbor" element={<KNearestNeighborPage />} />
+          <Route path="/about" element={<About />} />
 
 
         </Routes>

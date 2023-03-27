@@ -1,10 +1,8 @@
 :root{
-    --mainColor:gold;
-    --secColor:#0c0b19;
+    --mainColor: rgb(255, 255, 255);
+    --secColor:#000000;
 }
-*{
-    font-family: 'Kalam', cursive;
-}
+
 ul{
     list-style: none;
 }
@@ -14,8 +12,12 @@ ul{
 .text-main{
     color: var(--mainColor) !important;
 }
+
+.minH{
+    min-height: 89vh;
+}
 .border-main{
-    border: 1px solid gold !important;
+    border: 1px solid white !important;
 }
 .land{
     background-image: url('../Images/back.jpg');
@@ -36,6 +38,9 @@ ul{
 .img{
     height: 150px !important;
     width: 150px !important;
+}
+img{
+    display: inline-block !important;
 }
 .fit{
     width: fit-content !important;
@@ -247,5 +252,81 @@ ul{
 .hovFace,.hovTweet,.hovlink{
     color: black;
 }
+
+.LessonCard{
+    border-bottom: 1px solid #eee;
+    font-size: 20px;
+    background-color: white;
+}
+.LessonCard div:first-of-type{
+    border-right: 3px solid #eee;
+    padding-right: 10px;
+}
+.jupiter img{
+    width: 400px;
+    height: 400px;
+}
+.jupiter{
+    overflow: hidden;
+}
+.dx-htmleditor-content img {
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+.dx-htmleditor-content table {
+  width: 50%;
+}
+
+.options {
+  padding: 20px;
+  background-color: rgba(191, 191, 191, 0.15);
+  margin-top: 20px;
+}
+
+.caption {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.option {
+  margin-top: 10px;
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.option > .dx-selectbox,
+.option > .label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.option > .label {
+  margin-right: 10px;
+}
+
+.dx-htmleditor-content img {
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+.value-content {
+  margin-top: 20px;
+  overflow: auto;
+  height: 110px;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+.options {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(191, 191, 191, 0.15);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+
 
 

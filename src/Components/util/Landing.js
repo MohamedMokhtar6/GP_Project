@@ -1,16 +1,15 @@
 import React from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import img from '../../Images/banner.png'
 
 function Landing() {
     return (
         <Row className='land d-flex text-center justify-content-center position-relative m-0 align-items-center'>
             <Col>
 
-                <div className='text-white'>
+                <div className='text-white  my-4 fw-bold  '>
                     <h3 className='fw-bold'>Welcome to our website</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est excepturi dolores illum soluta dolorem asperiores quia adipisci deleniti vero. Labore laboriosam</p>
+                    {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est excepturi dolores illum soluta dolorem asperiores quia adipisci deleniti vero. Labore laboriosam</p> */}
                 </div>
                 <Link to={'/signup'} className='link'>
 

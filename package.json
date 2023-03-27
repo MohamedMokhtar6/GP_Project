@@ -3,12 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@chec/commerce.js": "^2.8.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
-    "@material-ui/core": "^4.12.4",
-    "@material-ui/icons": "^4.11.3",
     "@mui/material": "^5.10.15",
     "@stripe/react-stripe-js": "^1.15.0",
     "@stripe/stripe-js": "^1.44.1",
@@ -16,11 +13,18 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.2",
+    "devextreme": "22.2.3",
+    "devextreme-react": "22.2.3",
+    "es6-object-assign": "^1.1.0",
     "font-awesome": "^4.7.0",
+    "html-react-parser": "^3.0.8",
+    "prettier": "^2.8.3",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.39.4",
+    "react-jupyter-notebook-viewer": "^1.1.13",
     "react-multiple-image-input": "^1.0.0",
     "react-navbar-dropdown": "^1.4.3",
     "react-reveal": "^1.2.2",
@@ -51,5 +55,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "devextreme-themebuilder": "^22.2.3"
   }
 }

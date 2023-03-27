@@ -19,7 +19,7 @@ function UserCard() {
                 </Modal.Header>
                 <Modal.Body>Are You Sure???</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="danger" onClick={handleClose}>
+                    <Button className='bg-dark' onClick={handleClose}>
                         Cancel
                     </Button>
                     <Button variant="dark" onClick={handleDelete}>
@@ -34,9 +34,9 @@ function UserCard() {
                 <div style={{ border: "none" }} className=" white d-flex flex-column p-2 justify-content-center text-center" >
                     <div className='d-flex justify-content-between p-1 m-2 '>
                         <Link to={`/admin/edituser/:id`} style={{ textDecoration: "none", color: "black" }} className=''>
-                            <Button variant='dark' className='fit' >Edit</Button>
+                            <Button variant='dark' className='fit bg-dark' >Edit</Button>
                         </Link>
-                        <Button variant='danger' className='fit' onClick={() => { setShow(true) }}>Delete</Button>
+                        <Button variant='danger' className='fit bg-danger' onClick={() => { setShow(true) }}>Delete</Button>
 
                     </div>
                     <img src={img} alt='1' style={{ minHeight: "200px", minWidth: "150px" }} className=" m-auto" />
