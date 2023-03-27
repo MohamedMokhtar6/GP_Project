@@ -1,6 +1,8 @@
 :root{
-    --mainColor: rgb(255, 255, 255);
-    --secColor:#000000;
+    --mainColor: #31333f;
+    --secColor:#0e1117;
+    --thrdColor:#f8716e;
+    --forthColor:#3d361b;
 }
 
 ul{
