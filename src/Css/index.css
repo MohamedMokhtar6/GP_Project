@@ -1,18 +1,27 @@
 :root{
-    --mainColor: #31333f;
-    --secColor:#0e1117;
+    --mainColor:#0e1117;
+    --secColor: #31333f;
     --thrdColor:#f8716e;
-    --forthColor:#3d361b;
+    --forthColor:#564c26;
+}
+body{
+    background-color: var(--mainColor) !important;
 }
 
 ul{
     list-style: none;
 }
 .bg-main{
+    background-color: var(--mainColor) !important;
+}
+.bg-sec{
     background-color: var(--secColor) !important;
 }
+.bg-thr{
+    background-color: var(--thrdColor) !important;
+}
 .text-main{
-    color: var(--mainColor) !important;
+    color: white !important;
 }
 
 .minH{
@@ -22,10 +31,8 @@ ul{
     border: 1px solid white !important;
 }
 .land{
-    background-image: url('../Images/back.jpg');
     height: 92vh;
-    background-repeat: no-repeat;
-    background-size: cover;
+    
 }
 
 .land img{
@@ -50,6 +57,7 @@ img{
 }
 .link{
     text-decoration: none;
+    color: white !important;
 }
 .cardd{
     width: 260px !important;
@@ -57,7 +65,7 @@ img{
 }
 .hoverlink a:hover{
    font-weight: bold;
-   border-bottom: 1px solid gold;
+   border-bottom: 1px solid var(--thrdColor);
    font-size: large;
    transition: .3s;
    -webkit-transition: .3s;
@@ -123,11 +131,12 @@ img{
     -o-transition: .1s;
 }
 .inp{
-    background-color: #ededee;
+    background-color: white !important;
     padding: 4px 15px;
     border: none;
     width: 250px;
     border-radius: 10px;
+    color: black !important;
 }
 .subTitle{
     font-size: 20px;

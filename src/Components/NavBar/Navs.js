@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 
 function Navs() {
   return (
-    <Navbar
-      style={{ backgroundColor: "var(--secColor)" }}
-      expand="lg"
-      className="navBar"
-    >
+    <Navbar expand="lg" className="navBar bg-sec">
       <Container fluid>
         <Link className="link " to={"/"}>
           <Navbar.Brand className="text-main">Algorfit</Navbar.Brand>
