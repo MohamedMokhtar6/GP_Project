@@ -10,6 +10,7 @@ function HomePage() {
       <Navs />
       <Landing />
       <LearnPathContainer />
+      <RandomCourses />
     </>
   );
 }
