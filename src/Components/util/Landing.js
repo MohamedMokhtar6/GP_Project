@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 function Landing() {
   return (
     <>
-      <Row className="land d-flex text-center justify-content-center position-relative m-0 align-items-center">
+      <Row className="land d-flex text-center justify-content-center position-relative m-0 align-items-center bg-main">
         <Col>
-          <div className="text-white  my-4 fw-bold  ">
+          <div className="text-white my-4 fw-bold  ">
             <h1 className="fw-bold fs-1 mb-5">Welcome to Algorfit Academy</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
@@ -37,7 +37,7 @@ function Landing() {
       >
         <path
           class="main-path"
-          fill="#f8716e"
+          fill="#ededed"
           d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"
         ></path>
       </svg>

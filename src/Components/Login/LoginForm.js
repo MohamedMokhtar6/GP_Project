@@ -7,10 +7,10 @@ function LoginForm() {
   return (
     <Container style={{ minHeight: "82vh" }}>
       <Bounce left>
-        <Row className=" m-5 justify-content-center text-white  ">
+        <Row className=" m-5 justify-content-center text-white ">
           <Col
             style={{ width: "400px", height: "600px", flex: "none" }}
-            className=" p-0 reduceL d-flex flex-column text-center align-items-center  "
+            className=" p-0 reduceL d-flex flex-column text-center align-items-center  bg-main  "
           >
             <h2 className="fw-bold" style={{ marginTop: "150px" }}>
               Sign In
@@ -46,8 +46,8 @@ function LoginForm() {
             </p>
             <Link to={"/signup"} className="link">
               <button
-                className="text-main my-3 bt2  my-4"
-                style={{ backgroundColor: "var(--thrdColor)" }}
+                className="text-white my-3 bt2  my-4"
+                style={{ backgroundColor: "var(--mainColor)" }}
               >
                 Sign Up Now
               </button>
@@ -55,7 +55,7 @@ function LoginForm() {
           </Col>
         </Row>
         <Link to={"/admin/allusers"} className="link">
-          <button className="  my-3">Admin</button>
+          <button className="  my-3 text-main">Admin</button>
         </Link>
       </Bounce>
     </Container>

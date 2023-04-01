@@ -29,12 +29,6 @@ function AdminSidBar() {
             All Competitions
           </Link>
           <Link
-            to={"/admin/allmodels"}
-            className="fit my-3 bord hov link text-main"
-          >
-            All Models
-          </Link>
-          <Link
             to={"/admin/alllearningpathes"}
             className="fit my-3 bord hov link text-main"
           >
@@ -63,12 +57,6 @@ function AdminSidBar() {
             className="fit my-3 bord hov link text-main"
           >
             Create Competition
-          </Link>
-          <Link
-            to={"/admin/createmodel"}
-            className="fit my-3 bord hov link text-main"
-          >
-            Create Model
           </Link>
           <Link
             to={"/admin/createlearningpath"}

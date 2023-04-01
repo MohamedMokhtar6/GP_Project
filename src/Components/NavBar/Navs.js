@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 
 function Navs() {
   return (
-    <Navbar expand="lg" className="navBar bg-sec">
+    <Navbar
+      expand="lg"
+      className="navBar bg-main"
+      style={{ borderBottom: "1px solid" }}
+    >
       <Container fluid>
         <Link className="link " to={"/"}>
-          <Navbar.Brand className="text-main">Algorfit</Navbar.Brand>
+          <Navbar.Brand className="text-white">Algorfit</Navbar.Brand>
         </Link>
         <Navbar.Toggle
           aria-controls="navbarScroll"
@@ -52,7 +56,7 @@ function Navs() {
               />
             </Form>
             <Link to={"/login"} className="link">
-              <Button className="text-main border-0 bg-main bt">Login</Button>
+              <Button className="text-white border-0 bg-main bt">Login</Button>
             </Link>
           </div>
         </Navbar.Collapse>

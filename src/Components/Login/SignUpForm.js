@@ -15,12 +15,14 @@ function SignUpForm() {
             <h2 className="my-2 text-main">Sign In</h2>
             <p className="my-2 text-main">Sign in here if you have account.</p>
             <Link to={"/login"} className="link">
-              <button className="text-main border-main bt my-3">SING IN</button>
+              <button className="text-white border-main bt my-3 bg-main">
+                SING IN
+              </button>
             </Link>
           </Col>
           <Col
             style={{ width: "400px", height: "600px", flex: "none" }}
-            className=" p-0 reduceR d-flex flex-column text-center align-items-center justify-content-center  "
+            className=" p-0 reduceR d-flex flex-column text-center align-items-center justify-content-center bg-main  "
           >
             <h2 className="fw-bold text-white" style={{ marginTop: "50px" }}>
               Sign Up

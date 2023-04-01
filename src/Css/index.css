@@ -5,7 +5,7 @@
     --forthColor:#564c26;
 }
 body{
-    background-color: var(--mainColor) !important;
+    background-color: rgb(237, 237, 237)!important;
 }
 
 ul{
@@ -21,7 +21,7 @@ ul{
     background-color: var(--thrdColor) !important;
 }
 .text-main{
-    color: white !important;
+    color: black !important;
 }
 
 .minH{
@@ -32,7 +32,7 @@ ul{
 }
 .land{
     height: 92vh;
-    
+    z-index: -1;
 }
 
 .land img{
