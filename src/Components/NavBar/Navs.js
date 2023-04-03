@@ -47,14 +47,6 @@ function Navs() {
             </Link>
           </Nav>
           <div className="d-flex justify-content-evenly">
-            <Form className="d-flex">
-              <Form.Control
-                type="text"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-            </Form>
             <Link to={"/login"} className="link">
               <Button className="text-white border-0 bg-main bt">Login</Button>
             </Link>

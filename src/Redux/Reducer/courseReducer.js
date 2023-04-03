@@ -1,4 +1,9 @@
-import { Get_Error, Create_Course, Get_All_Courses } from "../type";
+import {
+  Get_Error,
+  Create_Course,
+  Get_All_Courses,
+  Get_One_Course,
+} from "../type";
 
 const inital = {
   Courses: [],
@@ -19,6 +24,12 @@ const CourceReducer = (state = inital, action) => {
       return {
         ...state,
         Courses: action.payload,
+        loading: false,
+      };
+    case Get_One_Course:
+      return {
+        ...state,
+        oneCourse: action.payload,
         loading: false,
       };
     case Get_Error:

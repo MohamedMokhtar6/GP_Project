@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { gatAllCourses } from "../../Redux/Actions/courseAction";
 
 function Tutorials() {
+  let div = document.querySelector(".html");
   const courses = useSelector((state) => state.Courses.Courses);
 
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function Tutorials() {
   } else {
     items = [];
   }
-  console.log(items);
+
   return (
     <div>
       <Navs />
@@ -38,19 +39,19 @@ function Tutorials() {
         rowSpacing={1}
         className="containerGrid   "
       >
-        {items ? (
+        {items.length > 0 ? (
           items.map((item, index) => {
             return (
               <CardOfCourse
                 key={index}
                 CourseName={item.title}
-                CourseLink={`./${item.title}`}
+                CourseLink={`./${item.id}`}
                 CourseDes={item.description}
               />
             );
           })
         ) : (
-          <h1>No Course Found</h1>
+          <h1>No Course Found </h1>
         )}
       </Grid>
     </div>

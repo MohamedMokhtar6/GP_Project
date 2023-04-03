@@ -1,4 +1,3 @@
-import zIndex from "@mui/material/styles/zIndex";
 import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -6,7 +5,7 @@ import { Link } from "react-router-dom";
 function Landing() {
   return (
     <>
-      <Row className="land d-flex text-center justify-content-center position-relative m-0 align-items-center bg-main">
+      <Row className="land d-flex text-center justify-content-center m-0 align-items-center bg-main">
         <Col>
           <div className="text-white my-4 fw-bold  ">
             <h1 className="fw-bold fs-1 mb-5">Welcome to Algorfit Academy</h1>
@@ -33,7 +32,7 @@ function Landing() {
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 126"
-        style={{ position: "absolute", bottom: "-40", zIndex: "-1" }}
+        style={{ position: "absolute", bottom: "-40", zIndex: "1" }}
       >
         <path
           class="main-path"
