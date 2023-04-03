@@ -16,8 +16,9 @@ export default function Jupiter() {
   let item = [];
   if (oneCourse.responseObject) {
     item = oneCourse.responseObject;
-    path = `"${item.jupiter}"`;
-    console.log(path);
+    path = item.jupiter;
+    path = path.slice(12);
+    path = "/notebooks/" + path;
   } else {
     item = [];
   }
@@ -26,7 +27,7 @@ export default function Jupiter() {
     <Container className="minH">
       <div className="jupiter">
         <JupyterNotebookViewer
-          filePath="C:\fakepath\decision_trees.ipynb"
+          filePath={path}
           className="notebook-class"
           outputImageClassName="output-image"
           outputBorderClassName="output-border"
