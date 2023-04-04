@@ -1,66 +1,181 @@
-import React, { useState } from 'react'
-import avatar from '../../Images/avatar.png'
-import { Button, Row } from 'react-bootstrap'
+import React, { useState } from "react";
+import img from "../../Images/avatar-06.png";
+import { Button, Row, Spinner } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { createUser } from "../../Redux/Actions/userAction";
+import { ToastContainer } from "react-toastify";
+import notify from "../../Hooks/useNotification";
 
 function AdminCreateUser() {
-    const [img, setImg] = useState(avatar);
-    const onImageChange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            setImg(URL.createObjectURL(e.target.files[0]));
-        }
-    };
-    return (
-        <>
-            <Row className="m-3 flex-column ">
-                <div className=" fw-bold fs-4 my-3">Add New User</div>
-                <span>User Image</span>
-                <label htmlFor="upload">
-                    <img
-                        src={img}
-                        alt="upload"
-                        className=" click"
-                        style={{ width: "150px" }}
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [gender, setGender] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [isPress, setIsPress] = useState(false);
 
-                    />
-                </label>
-                <input
-                    type={"file"}
-                    id="upload"
-                    className="opacity-0 fit "
-                    onChange={onImageChange}
+  const res = useSelector((state) => state.UserReducer.user);
 
-                />
-                <input
-                    placeholder="User Name"
-                    type={"text"}
-                    className="fit reduce my-2"
-                />
-                <input
-                    placeholder="User Email"
-                    type={"text"}
-                    className="fit reduce my-2"
-                />
-                <input
-                    placeholder="User Password"
-                    type={"text"}
-                    className="fit reduce my-2"
-                />
-                <select className='my-2 reduce fit ' >
-                    <option value={'0'}>Select Role</option>
-                    <option value={'1'}>Admin</option>
-                    <option value={'2'}>User</option>
+  const dispatch = useDispatch();
 
-                </select>
-                <Button variant="dark" className="fit m-3" >
-                    Save
-                </Button>
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    // if (typeof phoneNumber == "string") {
+    //   notify("phone number must be numder", "warn");
+    //   return;
+    // }
 
-            </Row>
+    if (
+      name === "" ||
+      password === "" ||
+      email === "" ||
+      role === "" ||
+      phoneNumber === "" ||
+      gender === ""
+    ) {
+      notify("من فضلك اكمل البيانات", "warn");
+      return;
+    }
+    setIsPress(true);
+    setLoading(true);
+    await dispatch(
+      createUser({
+        password: password,
+        email: email,
+        userName: name,
+        phoneNumber: phoneNumber,
+        gender: gender,
+        roleId: role,
+      })
+    );
+    console.log(gender);
+    console.log(role);
+    setLoading(false);
+  };
+  useEffect(() => {
+    if (loading === false) {
+      setLoading(true);
+      setIsPress(false);
+      console.log(res);
+      if (res.data.status) {
+        setName("");
+        setPassword("");
+        setEmail("");
+        setRole(null);
+        setPhoneNumber("");
+        setGender("");
+        console.log("تم الانتهاء");
+      }
+      if (res.data.status) {
+        notify("user has been Added successfully", "success");
+      } else {
+        notify(res.data.message, "warn");
+      }
+    }
+  }, [loading]);
 
-        </>
-
-
-    )
+  return (
+    <>
+      <Row className="m-3 flex-column ">
+        <div className=" fw-bold fs-4 my-3">Add New User</div>
+        <label htmlFor="upload">
+          <img src={img} style={{ width: "150px" }} />
+        </label>
+        <input
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+          placeholder="User Name"
+          type={"text"}
+          className="fit reduce my-2"
+          value={name}
+        />
+        <input
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          placeholder="User Email"
+          type="email"
+          className="fit reduce my-2"
+          value={email}
+        />
+        <input
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          placeholder="User Password"
+          type="password"
+          className="fit reduce my-2"
+          value={password}
+        />
+        <input
+          onChange={(e) => {
+            setPhoneNumber(e.target.value);
+          }}
+          placeholder="Phone Number"
+          type="tel"
+          className="fit reduce my-2"
+          value={phoneNumber}
+        />
+        <div>
+          <input
+            onClick={() => {
+              setGender(0);
+            }}
+            type="radio"
+            id="1"
+            name="gender"
+            className="fit reduce my-2 "
+            value={gender}
+          />
+          <label for="male" className="mx-2">
+            Male
+          </label>
+        </div>
+        <div>
+          <input
+            onClick={() => {
+              setGender(1);
+            }}
+            type="radio"
+            id="2"
+            name="gender"
+            className="fit reduce my-2"
+            value={gender}
+          />
+          <label for="female" className="mx-2">
+            Female
+          </label>
+          <br></br>
+        </div>
+        <select
+          value={role}
+          className="my-2 reduce fit "
+          onChange={(e) => {
+            setRole(e.target.value);
+          }}
+        >
+          <option value={"0"}>Select Role</option>
+          <option value={"1"}>Admin</option>
+          <option value={"2"}>User</option>
+        </select>
+        <Button variant="dark" className="fit m-3" onClick={onSubmit}>
+          Save
+        </Button>
+        {isPress ? (
+          loading ? (
+            <Spinner animation="border" variant="primary" />
+          ) : (
+            <h4>تم الانتهاء</h4>
+          )
+        ) : null}
+        <ToastContainer />
+      </Row>
+    </>
+  );
 }
 
-export default AdminCreateUser
+export default AdminCreateUser;
