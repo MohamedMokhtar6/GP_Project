@@ -1,4 +1,9 @@
-import { Get_Error, Create_Course, Get_All_Courses } from "../type";
+import {
+  Get_Error,
+  Create_Course,
+  Get_All_Courses,
+  Get_One_Course,
+} from "../type";
 import useGetData from "../../Hooks/UseGetData";
 import { useInsertData } from "../../Hooks/useInsertData";
 import useDeleteData from "../../Hooks/useDeleteData";
@@ -26,6 +31,21 @@ export const gatAllCourses = () => async (dispatch) => {
 
     dispatch({
       type: Get_All_Courses,
+      payload: respose,
+    });
+  } catch (e) {
+    dispatch({
+      type: Get_Error,
+      payload: "error" + e,
+    });
+  }
+};
+export const getOneCourse = (id) => async (dispatch) => {
+  try {
+    const respose = await useGetData(`Common/Course/GetCourse?CourseId=${id}`);
+
+    dispatch({
+      type: Get_One_Course,
       payload: respose,
     });
   } catch (e) {

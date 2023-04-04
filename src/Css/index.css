@@ -4,8 +4,10 @@
   --thrdColor: #f8716e;
   --forthColor: #564c26;
 }
-body {
-  background-color: var(--mainColor) !important;
+
+body{
+    background-color: rgb(237, 237, 237)!important;
+
 }
 
 ul {
@@ -20,8 +22,10 @@ ul {
 .bg-thr {
   background-color: var(--thrdColor) !important;
 }
-.text-main {
-  color: white !important;
+
+.text-main{
+    color: black !important;
+
 }
 
 .minH {
@@ -30,8 +34,10 @@ ul {
 .border-main {
   border: 1px solid white !important;
 }
-.land {
-  height: 92vh;
+
+.land{
+    height: 92vh;
+    z-index: -1;
 }
 
 .land img {

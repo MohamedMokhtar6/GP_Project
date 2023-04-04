@@ -8,8 +8,11 @@ import Navs from "../NavBar/Navs";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { gatAllCourses } from "../../Redux/Actions/courseAction";
+import { Skeleton } from "@mui/material";
+import { Container } from "react-bootstrap";
 
 function Tutorials() {
+  let div = document.querySelector(".html");
   const courses = useSelector((state) => state.Courses.Courses);
 
   const dispatch = useDispatch();
@@ -22,7 +25,7 @@ function Tutorials() {
   } else {
     items = [];
   }
-  console.log(items);
+
   return (
     <div>
       <Navs />
@@ -38,19 +41,35 @@ function Tutorials() {
         rowSpacing={1}
         className="containerGrid   "
       >
-        {items ? (
+        {items.length > 0 ? (
           items.map((item, index) => {
             return (
               <CardOfCourse
                 key={index}
                 CourseName={item.title}
-                CourseLink={`./${item.title}`}
+                CourseLink={`./${item.id}`}
                 CourseDes={item.description}
               />
             );
           })
         ) : (
-          <h1>No Course Found</h1>
+          <Container className="d-flex justify-content-center gap-5">
+            <Box sx={{ width: 210, marginRight: 0.5, my: 5 }}>
+              <Skeleton variant="rectangular" width={210} height={118} />
+              <Skeleton />
+              <Skeleton width="60%" />
+            </Box>
+            <Box sx={{ width: 210, marginRight: 0.5, my: 5 }}>
+              <Skeleton variant="rectangular" width={210} height={118} />
+              <Skeleton />
+              <Skeleton width="60%" />
+            </Box>
+            <Box sx={{ width: 210, marginRight: 0.5, my: 5 }}>
+              <Skeleton variant="rectangular" width={210} height={118} />
+              <Skeleton />
+              <Skeleton width="60%" />
+            </Box>
+          </Container>
         )}
       </Grid>
     </div>
