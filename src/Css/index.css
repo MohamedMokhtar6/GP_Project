@@ -380,3 +380,7 @@ img {
   width: 15rem !important;
 
 }
+.hoverr:hover{
+  background-color: white !important;
+  color: black !important;
+}
