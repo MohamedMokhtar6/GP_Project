@@ -1,8 +1,28 @@
-import React from "react";
-import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
+import { Avatar, MenuItem } from "@mui/joy";
+import React, { useEffect, useState } from "react";
+import {
+  Button,
+  Container,
+  Form,
+  Nav,
+  NavDropdown,
+  Navbar,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
+import img from "../../Images/avatar-06.png";
 
 function Navs() {
+  const [user, setUser] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("token") != null) setUser(true);
+  }, []);
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    setUser(false);
+  };
+
   return (
     <Navbar
       expand="lg"
@@ -45,9 +65,28 @@ function Navs() {
             </Link>
           </Nav>
           <div className="d-flex justify-content-evenly">
-            <Link to={"/login"} className="link">
-              <Button className="text-white border-0 bg-main bt">Login</Button>
-            </Link>
+            {user ? (
+              <div>
+                <NavDropdown
+                  title={<img src={img} className="userImg" />}
+                  id="basic-nav-dropdown"
+                >
+                  <NavDropdown.Item href="/admin/allusers">
+                    الصفحه الشخصية
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logOut} href="/">
+                    تسجيل خروج
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </div>
+            ) : (
+              <Link to={"/login"} className="link">
+                <Button className="text-white border-0 bg-main bt">
+                  Login
+                </Button>
+              </Link>
+            )}
           </div>
         </Navbar.Collapse>
       </Container>

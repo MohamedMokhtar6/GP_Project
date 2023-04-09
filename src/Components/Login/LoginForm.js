@@ -1,9 +1,20 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { Bounce } from "react-reveal";
 import { Link } from "react-router-dom";
+import LoginHook from "../../hook/login-hook";
+import { ToastContainer } from "react-toastify";
 
 function LoginForm() {
+  const [
+    email,
+    password,
+    loading,
+    onChangeEmail,
+    onChangePassword,
+    onSubmit,
+    isPress,
+  ] = LoginHook();
   return (
     <Container style={{ minHeight: "82vh" }}>
       <Bounce left>
@@ -15,8 +26,16 @@ function LoginForm() {
             <h2 className="fw-bold" style={{ marginTop: "150px" }}>
               Sign In
             </h2>
-            <input type={"email"} placeholder="Email" className="my-3 inp" />
             <input
+              value={email}
+              onChange={onChangeEmail}
+              type={"email"}
+              placeholder="Email"
+              className="my-3 inp"
+            />
+            <input
+              value={password}
+              onChange={onChangePassword}
               type={"password"}
               placeholder="Password"
               className="my-3 inp"
@@ -25,11 +44,21 @@ function LoginForm() {
               Forgot your password?
             </Link>
             <button
+              onClick={onSubmit}
               className="text-main my-3 bt2  my-4"
               style={{ backgroundColor: "var(--thrdColor)" }}
             >
               Sign IN
             </button>
+            {isPress === true ? (
+              loading === true ? (
+                <Spinner
+                  animation="border"
+                  role="status"
+                  variant="danger"
+                ></Spinner>
+              ) : null
+            ) : null}
           </Col>
           <Col
             style={{
@@ -58,6 +87,7 @@ function LoginForm() {
           <button className="  my-3 text-main">Admin</button>
         </Link>
       </Bounce>
+      <ToastContainer />
     </Container>
   );
 }
