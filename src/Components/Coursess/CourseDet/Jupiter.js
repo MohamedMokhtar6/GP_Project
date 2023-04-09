@@ -16,9 +16,11 @@ export default function Jupiter() {
   let item = [];
   if (oneCourse.responseObject) {
     item = oneCourse.responseObject;
-    path = item.jupiter;
-    path = path.slice(12);
-    path = "/notebooks/" + path;
+    try {
+      path = item.jupiter;
+      path = path.slice(12);
+      path = "/notebooks/" + path;
+    } catch {}
   } else {
     item = [];
   }

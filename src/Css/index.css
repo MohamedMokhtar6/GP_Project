@@ -1,5 +1,5 @@
 :root {
-  --mainColor: #eeeeee;
+  --mainColor: #03040e;
   --secColor: #31333f;
   --thrdColor: #f8716e;
   --forthColor: #564c26;
@@ -38,6 +38,7 @@ ul {
 .land{
     height: 92vh;
     z-index: -1;
+    background-color: var(--mainColor) !important;
 }
 
 .land img {
@@ -343,4 +344,7 @@ img {
   background-color: rgba(191, 191, 191, 0.15);
   box-sizing: border-box;
   width: 100%;
+}
+.courseImg{
+  width: 15rem !important;
 }
