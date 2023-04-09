@@ -1,10 +1,11 @@
 import baseUrl from "../Api/BaseUrl";
-const useDeleteData = async (url, parmas) => {
+
+const useGetDataToken = async (url, params) => {
   const config = {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   };
-  const res = await baseUrl.delete(url, parmas, config);
+  const res = await baseUrl.get(url, config);
   return res.data;
 };
 
-export default useDeleteData;
+export default useGetDataToken;

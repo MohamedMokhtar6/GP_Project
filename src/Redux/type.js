@@ -8,4 +8,7 @@ export const CREATE_USER = "CREATE_USER";
 export const GET_ALL_USERS = "GET_ALL_USERS";
 export const DELETE_USER = "DELETE_USER";
 
-
+export const LOGIN_USER = "LOGIN_USER";
+export const FOREGT_PASSWORD = "FOREGT_PASSWORD";
+export const VERIFY_PASSWORD = "VERIFY_PASSWORD";
+export const RESET_PASSWORD = "RESET_PASSWORD";

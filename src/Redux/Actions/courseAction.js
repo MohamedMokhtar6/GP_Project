@@ -1,13 +1,11 @@
+import useGetData from "../../hooks/UseGetData";
+import { useInsertData } from "../../hooks/useInsertData";
 import {
   Get_Error,
   Create_Course,
   Get_All_Courses,
   Get_One_Course,
 } from "../type";
-import useGetData from "../../Hooks/UseGetData";
-import { useInsertData } from "../../Hooks/useInsertData";
-import useDeleteData from "../../Hooks/useDeleteData";
-import { useUpdateData, useUpdateDataImage } from "../../Hooks/useUpdateData";
 
 export const createCourse = (data) => async (dispatch) => {
   try {

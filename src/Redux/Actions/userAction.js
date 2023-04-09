@@ -1,10 +1,11 @@
 import { Get_Error, CREATE_USER, GET_ALL_USERS, DELETE_USER } from "../type";
-import useGetData from "../../Hooks/UseGetData";
-import { useInsertData } from "../../Hooks/useInsertData";
-import useDeleteData from "../../Hooks/useDeleteData";
-import { useUpdateData, useUpdateDataImage } from "../../Hooks/useUpdateData";
+import useDeleteData from "../../hooks/useDeleteData";
+// import { useInsertData } from "../../Hooks/useInsertData";
+import useGetData from "../../hooks/UseGetData";
+import { useInsertData } from "../../hooks/useInsertData";
 
 export const createUser = (data) => async (dispatch) => {
+  console.log("from redux");
   try {
     const respose = await useInsertData(`Common/Student/AddStudent`, data);
 

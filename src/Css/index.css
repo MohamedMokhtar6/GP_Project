@@ -1,13 +1,12 @@
 :root {
-  --mainColor: #eeeeee;
+  --mainColor: #000000;
   --secColor: #31333f;
   --thrdColor: #f8716e;
   --forthColor: #564c26;
 }
 
-body{
-    background-color: rgb(237, 237, 237)!important;
-
+body {
+  background-color: rgb(237, 237, 237) !important;
 }
 
 ul {
@@ -23,9 +22,8 @@ ul {
   background-color: var(--thrdColor) !important;
 }
 
-.text-main{
-    color: black !important;
-
+.text-main {
+  color: black !important;
 }
 
 .minH {
@@ -35,9 +33,9 @@ ul {
   border: 1px solid white !important;
 }
 
-.land{
-    height: 92vh;
-    z-index: -1;
+.land {
+  height: 92vh;
+  z-index: -1;
 }
 
 .land img {
@@ -343,4 +341,32 @@ img {
   background-color: rgba(191, 191, 191, 0.15);
   box-sizing: border-box;
   width: 100%;
+}
+
+/* end filter */
+
+.dropdown-toggle {
+  color: white !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  margin-top: 14px;
+}
+.dropdown-menu {
+  background-color: #212529 !important;
+  color: white !important;
+}
+.dropdown-item {
+  color: white !important;
+  text-align: center !important;
+}
+.dropdown-item:hover {
+  color: #212529 !important;
+  background-color: white !important;
+}
+
+.userImg {
+  border-radius: 50%;
+  max-width: 40px;
+  max-height: 40px;
+  justify-content: center;
 }
