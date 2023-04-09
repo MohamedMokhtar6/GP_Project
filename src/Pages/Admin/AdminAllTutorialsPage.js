@@ -4,8 +4,7 @@ import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import AdminSidBar from "../../Components/Admin/AdminSidBar";
-import CardOfCourse from "../../Components/Coursess/CardOfCourse";
-import Tutorials from "../../Components/Coursess/Tutorials";
+import AdminAllCourses from "../../Components/Admin/AdminAllCourses";
 import Navs from "../../Components/NavBar/Navs";
 import { gatAllCourses } from "../../Redux/Actions/courseAction";
 function AdminAllTutorialsPage() {
@@ -38,11 +37,12 @@ function AdminAllTutorialsPage() {
             {items ? (
               items.map((item, index) => {
                 return (
-                  <CardOfCourse
+                  <AdminAllCourses
                     key={index}
                     CourseName={item.title}
                     CourseLink={`./${item.title}`}
                     CourseDes={item.description}
+                    id={item.id}
                   />
                 );
               })

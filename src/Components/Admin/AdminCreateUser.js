@@ -23,10 +23,6 @@ function AdminCreateUser() {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    // if (typeof phoneNumber == "string") {
-    //   notify("phone number must be numder", "warn");
-    //   return;
-    // }
 
     if (
       name === "" ||

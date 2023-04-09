@@ -5,12 +5,10 @@ import FooterBar from "./Components/util/FooterBar";
 import AdminAllUsersPage from "./Pages/Admin/AdminAllUsersPage";
 import AdminAllCompetitionsPage from "./Pages/Admin/AdminAllCompetitionsPage";
 import AdminAllLearningPathsPage from "./Pages/Admin/AdminAllLearningPathsPage";
-import AdminAllModelsPage from "./Pages/Admin/AdminAllModelsPage";
 import AdminAllQuizzesPage from "./Pages/Admin/AdminAllQuizzesPage";
 import AdminAllTutorialsPage from "./Pages/Admin/AdminAllTutorialsPage";
 import AdminCreateCompetitionPage from "./Pages/Admin/AdminCreateCompetitionPage";
 import AdminCreateLearningPathPage from "./Pages/Admin/AdminCreateLearningPathPage";
-import AdminCreateModelPage from "./Pages/Admin/AdminCreateModelPage";
 import AdminCreateQuizPage from "./Pages/Admin/AdminCreateQuizPage";
 import AdminCreateTutorialPage from "./Pages/Admin/AdminCreateTutorialPage";
 import AdminCreateUserPage from "./Pages/Admin/AdminCreateUserPage";
@@ -20,6 +18,7 @@ import SignUpPage from "./Pages/auth/SignUpPage";
 import About from "./Pages/About/About";
 import SvmPage from "./Pages/Course/CourseDetPage";
 import Tutorials from "./Components/Coursess/Tutorials";
+import CompetitionPage from "./Pages/Competition/CompetitionPage";
 
 function App() {
   return (
@@ -29,6 +28,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/computations" element={<CompetitionPage />} />
           <Route path="/admin/allusers" element={<AdminAllUsersPage />} />
           <Route
             path="/admin/alltutorials"
@@ -38,7 +38,7 @@ function App() {
             path="/admin/allcompetitions"
             element={<AdminAllCompetitionsPage />}
           />
-          <Route path="/admin/allmodels" element={<AdminAllModelsPage />} />
+
           <Route
             path="/admin/alllearningpathes"
             element={<AdminAllLearningPathsPage />}
@@ -53,7 +53,6 @@ function App() {
             path="/admin/createcompetition"
             element={<AdminCreateCompetitionPage />}
           />
-          <Route path="/admin/createmodel" element={<AdminCreateModelPage />} />
           <Route
             path="/admin/createlearningpath"
             element={<AdminCreateLearningPathPage />}

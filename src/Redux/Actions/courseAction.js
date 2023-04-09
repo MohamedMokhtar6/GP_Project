@@ -5,7 +5,13 @@ import {
   Create_Course,
   Get_All_Courses,
   Get_One_Course,
+  Delete_Course,
 } from "../type";
+
+import useGetData from "../../Hooks/UseGetData";
+import { useInsertData } from "../../Hooks/useInsertData";
+import useDeleteData from "../../Hooks/useDeleteData";
+
 
 export const createCourse = (data) => async (dispatch) => {
   try {
@@ -45,6 +51,24 @@ export const getOneCourse = (id) => async (dispatch) => {
     dispatch({
       type: Get_One_Course,
       payload: respose,
+    });
+  } catch (e) {
+    dispatch({
+      type: Get_Error,
+      payload: "error" + e,
+    });
+  }
+};
+export const deleteCourse = (id) => async (dispatch) => {
+  try {
+    const respose = await useDeleteData(
+      `Common/Course/DeleteCourse?CourseId=${id}`
+    );
+
+    dispatch({
+      type: Delete_Course,
+      payload: respose,
+      loading: true,
     });
   } catch (e) {
     dispatch({

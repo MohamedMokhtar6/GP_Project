@@ -9,6 +9,7 @@ function SvmPage() {
   const { id } = useParams();
   const oneCourse = useSelector((state) => state.Courses.oneCourse);
   const dispatch = useDispatch();
+  let title = "";
   const html = document.querySelector(".html");
   useEffect(() => {
     dispatch(getOneCourse(id));
@@ -18,6 +19,7 @@ function SvmPage() {
     item = oneCourse.responseObject;
     try {
       html.innerHTML = item.htmlCentent;
+      title = item.title;
     } catch (e) {
       console.log(e);
     }
@@ -28,7 +30,7 @@ function SvmPage() {
   return (
     <>
       <Container className="minH fs-4 text-center ">
-        <h1 className=" fw-bold fs-1">{item && item.title}</h1>
+        <h1 className=" fw-bold fs-1">{title}</h1>
         <Row className="m-3 my-4 html "></Row>
       </Container>
     </>

@@ -1,5 +1,6 @@
 :root {
-  --mainColor: #000000;
+
+  --mainColor: #03040e;
   --secColor: #31333f;
   --thrdColor: #f8716e;
   --forthColor: #564c26;
@@ -33,9 +34,12 @@ ul {
   border: 1px solid white !important;
 }
 
-.land {
-  height: 92vh;
-  z-index: -1;
+
+.land{
+    height: 92vh;
+    z-index: -1;
+    background-color: var(--mainColor) !important;
+
 }
 
 .land img {
@@ -343,6 +347,7 @@ img {
   width: 100%;
 }
 
+
 /* end filter */
 
 .dropdown-toggle {
@@ -369,4 +374,8 @@ img {
   max-width: 40px;
   max-height: 40px;
   justify-content: center;
+
+.courseImg{
+  width: 15rem !important;
+
 }

@@ -35,12 +35,6 @@ function AdminSidBar() {
             All Learning Path's
           </Link>
           <Link
-            to={"/admin/allquizzes"}
-            className="fit my-3 bord hov link text-main"
-          >
-            All Quizzes
-          </Link>
-          <Link
             to={"/admin/createuser"}
             className="fit my-3 bord hov link text-main"
           >
@@ -63,12 +57,6 @@ function AdminSidBar() {
             className="fit my-3 bord hov link text-main"
           >
             Create Learning Path
-          </Link>
-          <Link
-            to={"/admin/createquiz"}
-            className="fit my-3 bord hov link text-main"
-          >
-            Create Quiz
           </Link>
         </Col>
       </Row>

@@ -3,13 +3,13 @@ import {
   Create_Course,
   Get_All_Courses,
   Get_One_Course,
+  Delete_Course,
 } from "../type";
 
 const inital = {
   Courses: [],
   oneCourse: [],
   deleteCourse: [],
-  updateCourse: [],
   loading: true,
 };
 
@@ -30,6 +30,11 @@ const CourceReducer = (state = inital, action) => {
       return {
         ...state,
         oneCourse: action.payload,
+        loading: false,
+      };
+    case Delete_Course:
+      return {
+        deleteCourse: action.payload,
         loading: false,
       };
     case Get_Error:
