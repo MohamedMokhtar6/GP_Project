@@ -79,7 +79,13 @@ function Navs() {
                   >
                     <span>Profile</span>
                   </Link>
-                  <Dropdown.Item onClick={logOut}>LogOut</Dropdown.Item>
+                  <Link
+                    to={"/"}
+                    onClick={logOut}
+                    className="link d-block text-center my-1 hoverr "
+                  >
+                    <span>LogOut</span>
+                  </Link>
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
