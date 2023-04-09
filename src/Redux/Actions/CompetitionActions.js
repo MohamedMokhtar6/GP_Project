@@ -1,6 +1,6 @@
-import useGetData from "../../Hooks/UseGetData";
-import useDeleteData from "../../Hooks/useDeleteData";
-import { useInsertData } from "../../Hooks/useInsertData";
+import useGetData from "../../hooks/UseGetData";
+import useDeleteData from "../../hooks/useDeleteData";
+import { useInsertData } from "../../hooks/useInsertData";
 import {
   CREATE_Competition,
   DELETE_Competition,

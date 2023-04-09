@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import notify from "../hooks/useNotification";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../Redux/Actions/userAction";
 import { async } from "q";
+import notify from "../hooks/useNotification";
 
 const SignUpFormHook = () => {
   const dispatch = useDispatch();
