@@ -18,6 +18,7 @@ import SignUpPage from "./Pages/auth/SignUpPage";
 import About from "./Pages/About/About";
 import SvmPage from "./Pages/Course/CourseDetPage";
 import Tutorials from "./Components/Coursess/Tutorials";
+import CompetitionPage from "./Pages/Competition/CompetitionPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/computations" element={<CompetitionPage />} />
           <Route path="/admin/allusers" element={<AdminAllUsersPage />} />
           <Route
             path="/admin/alltutorials"

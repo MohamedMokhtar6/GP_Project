@@ -1,17 +1,18 @@
 import React from "react";
 import { Button, Container, Modal, Row } from "react-bootstrap";
-import img from "../../Images/python1.jpg";
+import img from "../../Images/comp.jpg";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { deleteCourse } from "../../Redux/Actions/courseAction";
+import { deleteCompetition } from "../../Redux/Actions/CompetitionActions";
 
-function AdminAllCourses(props) {
+function AdminAllCompetitions(props) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleDelete = async () => {
-    await dispatch(deleteCourse(props.id));
+    console.log(props.id);
+    await dispatch(deleteCompetition(props.id));
     window.location.reload();
   };
   return (
@@ -23,7 +24,7 @@ function AdminAllCourses(props) {
             onClick={handleShow}
             className="fit bg-danger"
           >
-            Delete Course
+            Delete Competition
           </Button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -51,11 +52,14 @@ function AdminAllCourses(props) {
         <Row>
           <img src={img} alt="img" className="courseImg" />
         </Row>
-        <Row className="justify-content-center">{props.CourseName}</Row>
+        <Row className="justify-content-center">{props.Name}</Row>
         <Row className="justify-content-center">{props.description}</Row>
+        <Row className="justify-content-center">Prize:{props.prize}</Row>
+        <Row className="justify-content-center">Start:{props.startDate}</Row>
+        <Row className="justify-content-center">End:{props.endtDate}</Row>
       </div>
     </>
   );
 }
 
-export default AdminAllCourses;
+export default AdminAllCompetitions;
