@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Col, Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import img from "../../Images/avatar-06.png";
+import img from "../../Images/admin.png";
 import { useDispatch } from "react-redux";
-import { deleteUser } from "../../Redux/Actions/userAction";
+import { deleteAdmin } from "../../Redux/Actions/userAction";
 
-function UserCard({ index, item, type }) {
+function AdminCard({ index, item, type }) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleDelete = async () => {
-    await dispatch(deleteUser(item.id));
+    await dispatch(deleteAdmin(item.id));
     setShow(false);
     window.location.reload();
   };
@@ -30,14 +30,8 @@ function UserCard({ index, item, type }) {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Col
-        xs="12"
-        sm="6"
-        md="5"
-        lg="4"
-        className="d-flex   mb-2 m-y2"
-        style={{ backgroundColor: "" }}
-      >
+
+      <Col xs="12" sm="6" md="5" lg="4" className="d-flex   mb-3 ">
         <div
           style={{ border: "none" }}
           className=" white d-flex flex-column p-2 justify-content-center text-center"
@@ -65,7 +59,7 @@ function UserCard({ index, item, type }) {
           <img
             src={img}
             alt="1"
-            style={{ minHeight: "200px", minWidth: "150px" }}
+            style={{ minHeight: "100px", minWidth: "100px", width: "200px" }}
             className=" m-auto"
           />
           <div className="">
@@ -79,4 +73,4 @@ function UserCard({ index, item, type }) {
   );
 }
 
-export default UserCard;
+export default AdminCard;

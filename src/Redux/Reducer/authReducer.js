@@ -1,5 +1,6 @@
 import {
   FOREGT_PASSWORD,
+  LOGIN_Admin,
   LOGIN_USER,
   RESET_PASSWORD,
   VERIFY_PASSWORD,
@@ -8,7 +9,9 @@ import {
 const inital = {
   loading: true,
   loginUser: [],
+  loginAdmin: [],
   currentUser: [],
+  currentAdmin: [],
   forgetPassword: [],
   verifyPassword: [],
   resetPassword: [],
@@ -19,6 +22,12 @@ const authReducer = (state = inital, action) => {
       return {
         ...state,
         loginUser: action.payload,
+        loading: false,
+      };
+    case LOGIN_Admin:
+      return {
+        ...state,
+        loginAdmin: action.payload,
         loading: false,
       };
     case FOREGT_PASSWORD:
