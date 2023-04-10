@@ -414,3 +414,7 @@ img {
 .side-nav-col div::after:hover {
   color: var(--thrdColor) !important;
 }
+.hoverr:hover{
+  background-color: white !important;
+  color: black !important;
+}
