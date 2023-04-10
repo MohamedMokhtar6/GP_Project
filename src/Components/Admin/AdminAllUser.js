@@ -8,7 +8,7 @@ function AdminAllUser() {
   const [users] = ViewAllUserHook();
   return (
     <>
-      <Row className="m-0">
+      <Row className="m-2">
         {users ? (
           users.map((item, index) => {
             return <UserCard key={index} item={item} />;

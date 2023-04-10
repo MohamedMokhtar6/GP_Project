@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import {
   Button,
   Container,
+  Dropdown,
   Form,
   Nav,
   NavDropdown,
@@ -66,20 +67,27 @@ function Navs() {
           </Nav>
           <div className="d-flex justify-content-evenly">
             {user ? (
-              <div>
-                <NavDropdown
-                  title={<img src={img} className="userImg" />}
-                  id="basic-nav-dropdown"
-                >
-                  <NavDropdown.Item href="/admin/allusers">
-                    الصفحه الشخصية
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logOut} href="/">
-                    تسجيل خروج
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </div>
+              <Dropdown>
+                <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                  <img src={img} className="userImg" />
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu style={{ left: "-100px" }}>
+                  <Link
+                    to={"/admin/allusers"}
+                    className="link d-block text-center my-1 hoverr "
+                  >
+                    <span>Profile</span>
+                  </Link>
+                  <Link
+                    to={"/"}
+                    onClick={logOut}
+                    className="link d-block text-center my-1 hoverr "
+                  >
+                    <span>LogOut</span>
+                  </Link>
+                </Dropdown.Menu>
+              </Dropdown>
             ) : (
               <Link to={"/login"} className="link">
                 <Button className="text-white border-0 bg-main bt">

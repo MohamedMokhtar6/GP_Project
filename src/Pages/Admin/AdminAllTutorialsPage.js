@@ -24,7 +24,7 @@ function AdminAllTutorialsPage() {
     <>
       <Navs />
       <Row className="m-0">
-        <Col sm="3">
+        <Col sm="3" className="side-nav">
           <AdminSidBar />
         </Col>
         <Col xs="8" sm="9">

@@ -8,7 +8,7 @@ function AdminCreateCompetitionPage() {
     <>
       <Navs />
       <Row className="m-0">
-        <Col xs="4" sm="3">
+        <Col xs="4" sm="3" className="side-nav">
           <AdminSidBar />
         </Col>
         <Col xs="8" sm="9">
