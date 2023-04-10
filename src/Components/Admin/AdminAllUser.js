@@ -33,8 +33,6 @@ function AdminAllUser() {
             </Box>
           </Container>
         )}
-      </Row>
-      <Row className="m-0">
         {admins ? (
           admins.map((item, index) => {
             return <AdminCard key={index} item={item} type="Admin" />;

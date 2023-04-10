@@ -9,7 +9,7 @@ const LoginHook = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const res = useSelector((state) => state.authReducer.loginUser);
-  const resAdmin = useSelector((state) => state.authReducer.loginAdmin);
+  // const resAdmin = useSelector((state) => state.authReducer.loginAdmin);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
