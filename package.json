@@ -5,7 +5,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/joy": "^5.0.0-alpha.74",
     "@mui/material": "^5.10.15",
     "@stripe/react-stripe-js": "^1.15.0",
@@ -20,6 +21,7 @@
     "es6-object-assign": "^1.1.0",
     "font-awesome": "^4.7.0",
     "html-react-parser": "^3.0.8",
+    "mdb-react-ui-kit": "^6.0.0",
     "prettier": "^2.8.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
