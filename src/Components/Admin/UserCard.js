@@ -30,8 +30,14 @@ function UserCard({ index, item, type }) {
           </Button>
         </Modal.Footer>
       </Modal>
-
-      <Col xs="12" sm="6" md="5" lg="4" className="d-flex   mb-3 ">
+      <Col
+        xs="12"
+        sm="6"
+        md="5"
+        lg="4"
+        className="d-flex   mb-2 m-y2"
+        style={{ backgroundColor: "" }}
+      >
         <div
           style={{ border: "none" }}
           className=" white d-flex flex-column p-2 justify-content-center text-center"
