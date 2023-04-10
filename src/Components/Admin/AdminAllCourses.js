@@ -49,7 +49,12 @@ function AdminAllCourses(props) {
           </Modal>
         </Row>
         <Row>
-          <img src={img} alt="img" className="courseImg" />
+          <img
+            src={img}
+            alt="img"
+            className="courseImg"
+            style={{ width: "20rem" }}
+          />
         </Row>
         <Row className="justify-content-center">{props.CourseName}</Row>
         <Row className="justify-content-center">{props.description}</Row>
