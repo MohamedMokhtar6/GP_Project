@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import img from "../../Images/avatar-06.png";
-import { Button, Row, Spinner } from "react-bootstrap";
+import { Button, Form, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { createUser } from "../../Redux/Actions/userAction";
@@ -75,7 +75,7 @@ function AdminCreateUser() {
 
   return (
     <>
-      <Row className="m-3 flex-column ">
+      <Row className="m-3 flex-column dash-bord-card">
         <div className=" fw-bold fs-4 my-3">Add New User</div>
         <label htmlFor="upload">
           <img src={img} style={{ width: "150px" }} />
@@ -86,7 +86,7 @@ function AdminCreateUser() {
           }}
           placeholder="User Name"
           type={"text"}
-          className="fit reduce my-2"
+          className="fit reduce my-2 main-back-color"
           value={name}
         />
         <input
@@ -95,7 +95,7 @@ function AdminCreateUser() {
           }}
           placeholder="User Email"
           type="email"
-          className="fit reduce my-2"
+          className="fit reduce my-2 main-back-color"
           value={email}
         />
         <input
@@ -104,7 +104,7 @@ function AdminCreateUser() {
           }}
           placeholder="User Password"
           type="password"
-          className="fit reduce my-2"
+          className="fit reduce my-2 main-back-color"
           value={password}
         />
         <input
@@ -113,7 +113,7 @@ function AdminCreateUser() {
           }}
           placeholder="Phone Number"
           type="tel"
-          className="fit reduce my-2"
+          className="fit reduce my-2 main-back-color"
           value={phoneNumber}
         />
         <div>
@@ -124,10 +124,10 @@ function AdminCreateUser() {
             type="radio"
             id="1"
             name="gender"
-            className="fit reduce my-2 "
+            className="fit reduce my-2 main-back-color "
             value={gender}
           />
-          <label for="male" className="mx-2">
+          <label for="male" className="mx-2 ">
             Male
           </label>
         </div>
@@ -139,10 +139,10 @@ function AdminCreateUser() {
             type="radio"
             id="2"
             name="gender"
-            className="fit reduce my-2"
+            className="fit reduce my-2 main-back-color"
             value={gender}
           />
-          <label for="female" className="mx-2">
+          <label for="female" className="mx-2 ">
             Female
           </label>
           <br></br>
@@ -158,7 +158,12 @@ function AdminCreateUser() {
           <option value={"1"}>Admin</option>
           <option value={"2"}>User</option>
         </select>
-        <Button variant="dark" className="fit m-3" onClick={onSubmit}>
+        <Button
+          // style={{ backgroundColor: "000000" }}
+          variant="dark"
+          className="fit m-3 main-color"
+          onClick={onSubmit}
+        >
           Save
         </Button>
         {isPress ? (
