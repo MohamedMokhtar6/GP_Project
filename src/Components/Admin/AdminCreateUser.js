@@ -1,68 +1,70 @@
 import React, { useState } from "react";
 import img from "../../Images/avatar-06.png";
-import { Button, Row, Spinner } from "react-bootstrap";
+import { Button, Form, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { createUser } from "../../Redux/Actions/userAction";
+import { createAdmin, createUser } from "../../Redux/Actions/userAction";
 import { ToastContainer } from "react-toastify";
 import notify from "../../hooks/useNotification";
-import { TextField } from "@mui/material";
-import { styled } from "@mui/material/styles";
 
-const CssTextField = styled(TextField)({
-  "& label.Mui-focused": {
-    color: "#f8716e",
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "#f8716e",
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "#f8716e",
-    },
-    "&:hover fieldset": {
-      borderColor: "#f8716e",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "#f8716e",
-    },
-  },
-});
-
-const AdminCreateUser = () => {
+function AdminCreateUser() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [gender, setGender] = useState("");
   const [loading, setLoading] = useState(true);
   const [isPress, setIsPress] = useState(false);
-  const [ConfirmPassword, setConfirmPassword] = useState("false");
 
   const res = useSelector((state) => state.UserReducer.user);
+  const resAdmin = useSelector((state) => state.UserReducer.admin);
 
   const dispatch = useDispatch();
 
   const onSubmit = async (event) => {
     event.preventDefault();
 
-    if (name === "" || password === "" || email === "" || phoneNumber === "") {
-      notify("Plesse Complete Failds", "warn");
-      return;
-    }
-    if (password != ConfirmPassword) {
-      notify("There was Problem in Password", "warn");
+    if (
+      name === "" ||
+      password === "" ||
+      email === "" ||
+      role === "" ||
+      phoneNumber === "" ||
+      gender === ""
+    ) {
+      notify("من فضلك اكمل البيانات", "warn");
+
       return;
     }
     setIsPress(true);
     setLoading(true);
-    await dispatch(
-      createUser({
-        password: password,
-        email: email,
-        userName: name,
-        phoneNumber: phoneNumber,
-      })
-    );
+    if (role == "1") {
+      await dispatch(
+        createAdmin({
+          password: password,
+          email: email,
+          userName: name,
+          phoneNumber: phoneNumber,
+          gender: gender,
+          roleId: role,
+        })
+      );
+    } else if (role == "2") {
+      await dispatch(
+        createUser({
+          password: password,
+          email: email,
+          userName: name,
+          phoneNumber: phoneNumber,
+          gender: gender,
+          roleId: role,
+        })
+      );
+    }
+
+    console.log(gender);
+    console.log(role);
     setLoading(false);
   };
   useEffect(() => {
@@ -70,102 +72,145 @@ const AdminCreateUser = () => {
       setLoading(true);
       setIsPress(false);
       console.log(res);
-      if (res.data.status) {
-        setName("");
-        setPassword("");
-        setEmail("");
-        setPhoneNumber("");
-        setConfirmPassword("");
-        console.log("تم الانتهاء");
-      }
-      if (res.data.status) {
-        notify("user has been Added successfully", "success");
-      } else {
-        notify(res.data.message, "warn");
-      }
+      try {
+        if (res.data.status) {
+          setName("");
+          setPassword("");
+          setEmail("");
+          setRole(null);
+          setPhoneNumber("");
+          setGender("");
+          console.log("تم الانتهاء");
+        }
+        if (res.data.status) {
+          notify("user has been Added successfully", "success");
+        } else {
+          notify(res.data.message, "warn");
+        }
+      } catch {}
+      try {
+        if (resAdmin.data.status) {
+          setName("");
+          setPassword("");
+          setEmail("");
+          setRole(null);
+          setPhoneNumber("");
+          setGender("");
+          console.log("تم الانتهاء");
+        }
+        if (resAdmin.data.status) {
+          notify("user has been Added successfully", "success");
+        } else {
+          notify(resAdmin.data.message, "warn");
+        }
+      } catch {}
     }
   }, [loading]);
 
   return (
     <>
-      <Row className="m-4 justify-content-center">
-        <div className="update-user">
-          <div className="createUserImg">
-            <label htmlFor="upload">
-              <img src={img} style={{ width: "150px" }} />
-            </label>
-          </div>
-          <CssTextField
-            id="standard-basic"
-            label="User Name"
-            variant="standard"
-            type="text"
-            onChange={(e) => {
-              setName(e.target.value);
+      <Row className="m-3 flex-column dash-bord-card">
+        <div className=" fw-bold fs-4 my-3">Add New User</div>
+        <label htmlFor="upload">
+          <img src={img} style={{ width: "150px" }} />
+        </label>
+        <input
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+          placeholder="User Name"
+          type={"text"}
+          className="fit reduce my-2 main-back-color"
+          value={name}
+        />
+        <input
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          placeholder="User Email"
+          type="email"
+          className="fit reduce my-2 main-back-color"
+          value={email}
+        />
+        <input
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          placeholder="User Password"
+          type="password"
+          className="fit reduce my-2 main-back-color"
+          value={password}
+        />
+        <input
+          onChange={(e) => {
+            setPhoneNumber(e.target.value);
+          }}
+          placeholder="Phone Number"
+          type="tel"
+          className="fit reduce my-2 main-back-color"
+          value={phoneNumber}
+        />
+        <div>
+          <input
+            onClick={() => {
+              setGender(0);
             }}
-            value={name}
+            type="radio"
+            id="1"
+            name="gender"
+            className="fit reduce my-2 main-back-color "
+            value={gender}
           />
-          <CssTextField
-            id="standard-basic"
-            label="Email Address"
-            variant="standard"
-            type="email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            value={email}
-          />
-          <CssTextField
-            id="standard-basic"
-            label="Phone Number"
-            variant="standard"
-            type="tel"
-            onChange={(e) => {
-              setPhoneNumber(e.target.value);
-            }}
-            value={phoneNumber}
-          />
-          <CssTextField
-            id="standard-basic"
-            label="Password"
-            variant="standard"
-            type="password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            value={password}
-          />
-          <CssTextField
-            onChange={(e) => {
-              setConfirmPassword(e.target.value);
-            }}
-            value={ConfirmPassword}
-            id="standard-basic"
-            label="Confirm Password"
-            variant="standard"
-            type="password"
-          />
-          <div className="btn-form">
-            <Button variant="dark" className="fit" onClick={onSubmit}>
-              Create
-            </Button>
-            {isPress ? (
-              loading ? (
-                <Spinner
-                  animation="border"
-                  variant="primary"
-                  style={{ margin: "10px" }}
-                />
-              ) : (
-                <h4>Finished</h4>
-              )
-            ) : null}
-          </div>
-          <ToastContainer />
+          <label for="male" className="mx-2 ">
+            Male
+          </label>
         </div>
+        <div>
+          <input
+            onClick={() => {
+              setGender(1);
+            }}
+            type="radio"
+            id="2"
+            name="gender"
+            className="fit reduce my-2 main-back-color"
+            value={gender}
+          />
+          <label for="female" className="mx-2 ">
+            Female
+          </label>
+          <br></br>
+        </div>
+        <select
+          value={role}
+          className="my-2 reduce fit "
+          onChange={(e) => {
+            setRole(e.target.value);
+          }}
+        >
+          <option value={"0"}>Select Role</option>
+          <option value={"1"}>Admin</option>
+          <option value={"2"}>User</option>
+        </select>
+        <Button
+          // style={{ backgroundColor: "000000" }}
+          variant="dark"
+          className="fit m-3 main-color"
+          onClick={onSubmit}
+        >
+          Save
+        </Button>
+        {isPress ? (
+          loading ? (
+            <Spinner animation="border" variant="primary" />
+          ) : (
+            <h4>تم الانتهاء</h4>
+          )
+        ) : null}
+        <ToastContainer />
       </Row>
     </>
   );
-};
+}
 
 export default AdminCreateUser;
