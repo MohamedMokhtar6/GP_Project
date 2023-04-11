@@ -11,7 +11,7 @@ import { styled } from "@mui/material/styles";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
-    color: "black",
+    color: "#f8716e",
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "#f8716e",
@@ -88,7 +88,7 @@ const AdminUpdateUser = () => {
   return (
     <>
       <Row className="m-4 justify-content-center">
-        <div className="test">
+        <div className="update-user">
           <div className="createUserImg">
             <label htmlFor="upload">
               <img src={img} style={{ width: "150px" }} />

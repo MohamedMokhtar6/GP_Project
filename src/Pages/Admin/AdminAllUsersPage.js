@@ -12,7 +12,7 @@ function AdminAllUsersPage() {
         <Col xs="4" sm="3" className="side-nav">
           <AdminSidBar />
         </Col>
-        <Col xs="8" sm="9">
+        <Col xs="8" sm="9" lg="7">
           <AdminAllUser />
         </Col>
       </Row>
