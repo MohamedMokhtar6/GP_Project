@@ -3,7 +3,7 @@ import img from "../../Images/avatar-06.png";
 import { Button, Form, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { createUser } from "../../Redux/Actions/userAction";
+import { createAdmin, createUser } from "../../Redux/Actions/userAction";
 import { ToastContainer } from "react-toastify";
 import notify from "../../hooks/useNotification";
 
@@ -18,6 +18,7 @@ function AdminCreateUser() {
   const [isPress, setIsPress] = useState(false);
 
   const res = useSelector((state) => state.UserReducer.user);
+  const resAdmin = useSelector((state) => state.UserReducer.admin);
 
   const dispatch = useDispatch();
 
@@ -33,20 +34,35 @@ function AdminCreateUser() {
       gender === ""
     ) {
       notify("من فضلك اكمل البيانات", "warn");
+
       return;
     }
     setIsPress(true);
     setLoading(true);
-    await dispatch(
-      createUser({
-        password: password,
-        email: email,
-        userName: name,
-        phoneNumber: phoneNumber,
-        gender: gender,
-        roleId: role,
-      })
-    );
+    if (role == "1") {
+      await dispatch(
+        createAdmin({
+          password: password,
+          email: email,
+          userName: name,
+          phoneNumber: phoneNumber,
+          gender: gender,
+          roleId: role,
+        })
+      );
+    } else if (role == "2") {
+      await dispatch(
+        createUser({
+          password: password,
+          email: email,
+          userName: name,
+          phoneNumber: phoneNumber,
+          gender: gender,
+          roleId: role,
+        })
+      );
+    }
+
     console.log(gender);
     console.log(role);
     setLoading(false);
@@ -56,20 +72,38 @@ function AdminCreateUser() {
       setLoading(true);
       setIsPress(false);
       console.log(res);
-      if (res.data.status) {
-        setName("");
-        setPassword("");
-        setEmail("");
-        setRole(null);
-        setPhoneNumber("");
-        setGender("");
-        console.log("تم الانتهاء");
-      }
-      if (res.data.status) {
-        notify("user has been Added successfully", "success");
-      } else {
-        notify(res.data.message, "warn");
-      }
+      try {
+        if (res.data.status) {
+          setName("");
+          setPassword("");
+          setEmail("");
+          setRole(null);
+          setPhoneNumber("");
+          setGender("");
+          console.log("تم الانتهاء");
+        }
+        if (res.data.status) {
+          notify("user has been Added successfully", "success");
+        } else {
+          notify(res.data.message, "warn");
+        }
+      } catch {}
+      try {
+        if (resAdmin.data.status) {
+          setName("");
+          setPassword("");
+          setEmail("");
+          setRole(null);
+          setPhoneNumber("");
+          setGender("");
+          console.log("تم الانتهاء");
+        }
+        if (resAdmin.data.status) {
+          notify("user has been Added successfully", "success");
+        } else {
+          notify(resAdmin.data.message, "warn");
+        }
+      } catch {}
     }
   }, [loading]);
 

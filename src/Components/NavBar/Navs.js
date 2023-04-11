@@ -69,20 +69,26 @@ function Navs() {
             {user ? (
               <Dropdown>
                 <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                  <img src={img} className="userImg" />
+                  <img
+                    src={img}
+                    className="userImg"
+                    style={{ width: "2rem" }}
+                  />
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu style={{ left: "-100px" }}>
+                <Dropdown.Menu
+                  style={{ left: "-100px", backgroundColor: "darkgray" }}
+                >
                   <Link
                     to={"/admin/allusers"}
-                    className="link d-block text-center my-1 hoverr "
+                    className="link d-block text-center my-1 hoverr text-black "
                   >
                     <span>Profile</span>
                   </Link>
                   <Link
                     to={"/"}
                     onClick={logOut}
-                    className="link d-block text-center my-1 hoverr "
+                    className="link d-block text-center my-1 hoverr text-black "
                   >
                     <span>LogOut</span>
                   </Link>
