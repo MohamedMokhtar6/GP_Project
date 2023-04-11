@@ -464,10 +464,41 @@ img {
   margin-bottom: 11px;
   border: none;
   background-color: var(--thrdColor) !important;
-  color: var(--mainColor);
+  color: white;
 }
 
 .btn-form Button:hover {
   background-color: var(--mainColor) !important;
+  color: white;
+}
+
+/* all user card */
+
+.btn-card {
+  margin-top: 11px;
+  margin-bottom: 11px;
+  border: none;
+  background-color: var(--thrdColor) !important;
+  color: white;
+  border: none !important;
+}
+
+.btn-card:hover {
+  background-color: var(--mainColor) !important;
+  color: white;
+}
+
+.btn-card-black {
+  margin-top: 11px;
+  margin-bottom: 11px;
+  border: none;
+  background-color: var(--mainColor) !important;
+
+  color: white;
+  border: none !important;
+}
+
+.btn-card-black:hover {
+  background-color: var(--thrdColor) !important;
   color: white;
 }

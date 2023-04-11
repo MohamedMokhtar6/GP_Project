@@ -75,6 +75,7 @@ const AdminCreateUser = () => {
         setPassword("");
         setEmail("");
         setPhoneNumber("");
+        setConfirmPassword("");
         console.log("تم الانتهاء");
       }
       if (res.data.status) {

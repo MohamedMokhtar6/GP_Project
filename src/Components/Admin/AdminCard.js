@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Col, Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import img from "../../Images/admin.png";
+
 import { useDispatch } from "react-redux";
 import { deleteAdmin } from "../../Redux/Actions/userAction";
 
-function AdminCard({ index, item, type }) {
+function AdminCard({ index, item, type, img }) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
