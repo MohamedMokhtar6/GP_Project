@@ -29,7 +29,7 @@ const CssTextField = styled(TextField)({
   },
 });
 
-const AdminCreateUser = () => {
+const AdminUpdateUser = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -75,7 +75,6 @@ const AdminCreateUser = () => {
         setPassword("");
         setEmail("");
         setPhoneNumber("");
-        setConfirmPassword("");
         console.log("تم الانتهاء");
       }
       if (res.data.status) {
@@ -168,4 +167,4 @@ const AdminCreateUser = () => {
   );
 };
 
-export default AdminCreateUser;
+export default AdminUpdateUser;

@@ -1,23 +1,23 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import AdminAllUser from "../../Components/Admin/AdminAllUser";
 import AdminSidBar from "../../Components/Admin/AdminSidBar";
 import Navs from "../../Components/NavBar/Navs";
+import AdminUpdateUser from "../../Components/Admin/AdminUpdateUser";
 
-function AdminAllUsersPage() {
+function AdminUpdateUserPage() {
   return (
     <>
       <Navs />
       <Row className="m-0">
-        <Col sm="3" xs="2" md="2" className="side-nav">
+        <Col xs="4" sm="3" className="side-nav">
           <AdminSidBar />
         </Col>
-        <Col>
-          <AdminAllUser sm="9" xs="10" md="10" />
+        <Col xm="8">
+          <AdminUpdateUser />
         </Col>
       </Row>
     </>
   );
 }
 
-export default AdminAllUsersPage;
+export default AdminUpdateUserPage;

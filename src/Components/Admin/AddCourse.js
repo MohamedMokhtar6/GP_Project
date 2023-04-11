@@ -165,7 +165,7 @@ function AddCourse() {
                             </div>
                         </div> */}
         </div>
-        <Row className="justify-content-center">
+        <Row className="justify-content-center btn-form">
           <Button
             variant="black"
             className="bg-black text-white fit  my-4"
