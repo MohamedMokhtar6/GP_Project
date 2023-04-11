@@ -3,19 +3,33 @@
   --secColor: #4a5fc1;
   --thrdColor: #f8716e;
   --forthColor: #564c26;
-  --backColor: #f6f6f7;
+  --backColor: #efefef;
   /* --backColor: #dcdcdc; */
+  --transparent-color: rgb(15 116 143 /70%);
 }
-.main-color {
-  background-color: var(--mainColor) !important;
-}
-body {
-  background-color: #f6f6f7 !important;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Open Sans", sans-ser !important;
+  background-color: var(--backColor) !important;
+}
 ul {
   list-style: none;
 }
+
+.main-color {
+  background-color: var(--mainColor) !important;
+}
+
 .bg-main {
   background-color: var(--mainColor) !important;
 }
@@ -361,7 +375,7 @@ img {
 /* side nave bare */
 .side-nav {
   padding: 0 !important;
-  max-width: 250px !important;
+  max-width: 270px !important;
 }
 .side-nav-col {
   padding-top: 60px !important;
@@ -414,7 +428,46 @@ img {
 .side-nav-col div::after:hover {
   color: var(--thrdColor) !important;
 }
-.hoverr:hover{
+.hoverr:hover {
   background-color: white !important;
   color: black !important;
+}
+
+/* update user card */
+
+.test {
+  margin: 10px;
+  padding: 45px;
+  background-color: white;
+  display: grid;
+  justify-content: center;
+  max-width: 600px !important;
+  border-radius: 10px;
+}
+.createUserImg img {
+  border-radius: 50%;
+  justify-content: center !important;
+  display: flex !important;
+}
+.createUserImg label {
+  justify-content: center;
+  display: flex;
+}
+
+.btn-form {
+  display: flex;
+  justify-content: start;
+}
+
+.btn-form Button {
+  margin-top: 11px;
+  margin-bottom: 11px;
+  border: none;
+  background-color: var(--thrdColor) !important;
+  color: var(--mainColor);
+}
+
+.btn-form Button:hover {
+  background-color: var(--mainColor) !important;
+  color: white;
 }
