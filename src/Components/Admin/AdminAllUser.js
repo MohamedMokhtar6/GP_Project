@@ -4,15 +4,19 @@ import UserCard from "./UserCard";
 import ViewAllUserHook from "../../hook/view-all-user-hook";
 import { Box, Skeleton } from "@mui/material";
 import AdminCard from "./AdminCard";
+import user from "../../Images/user3.png";
+import admin from "../../Images/admin.png";
 
 function AdminAllUser() {
   const [users, admins] = ViewAllUserHook();
   return (
     <>
-      <Row className="m-2">
+      <Row className="justify-content-start">
         {users ? (
           users.map((item, index) => {
-            return <UserCard key={index} item={item} type="Student" />;
+            return (
+              <UserCard key={index} item={item} type="Student" img={user} />
+            );
           })
         ) : (
           <Container className="d-flex justify-content-center gap-5">
@@ -35,7 +39,9 @@ function AdminAllUser() {
         )}
         {admins ? (
           admins.map((item, index) => {
-            return <AdminCard key={index} item={item} type="Admin" />;
+            return (
+              <UserCard key={index} item={item} type="Admin" img={admin} />
+            );
           })
         ) : (
           <Container className="d-flex justify-content-center gap-5">
