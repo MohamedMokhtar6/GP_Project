@@ -1,10 +1,10 @@
 import React from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import IconButton from "@mui/joy/IconButton";
 import Typography from "@mui/joy/Typography";
+import img from "../../Images/comp.jpg";
 
 function CompetitionCard(props) {
   return (
@@ -28,9 +28,11 @@ function CompetitionCard(props) {
           size="sm"
           sx={{ position: "absolute", top: "0.5rem", right: "0.5rem" }}
         ></IconButton>
-        <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
-          {props.description}
-        </AspectRatio>
+        {/* <AspectRatio className="text-danger">{props.description}</AspectRatio> */}
+        <div>
+          <img src={img} />
+          <p>{props.description}</p>
+        </div>
         <Box sx={{ display: "flex" }}>
           <div className="mx-auto">
             <Typography level="body3" className="">
