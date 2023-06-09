@@ -1,16 +1,14 @@
 import React from "react";
 import Navs from "../../Components/NavBar/Navs";
 import Landing from "../../Components/util/Landing";
-import LearnPathContainer from "../../Components/LearningPath/LearnPathContainer";
-import RandomCourses from "../../Components/Random Courses/RandomCourses";
+import ContactUs from "../../Components/util/ContactUs";
 
 function HomePage() {
   return (
     <>
       <Navs />
       <Landing />
-      {/* <LearnPathContainer />
-      <RandomCourses /> */}
+      <ContactUs />
     </>
   );
 }

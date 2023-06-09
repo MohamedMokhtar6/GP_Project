@@ -1,5 +1,6 @@
 import { Avatar, MenuItem } from "@mui/joy";
 import React, { useEffect, useState } from "react";
+
 import {
   Button,
   Container,
@@ -11,12 +12,18 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import img from "../../Images/avatar-06.png";
+import LoginHook from "../../hook/login-hook";
 
 function Navs() {
   const [user, setUser] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("token") != null) setUser(true);
+    var email = localStorage.getItem("email");
+    if (email.includes("Admin")) {
+      setIsAdmin(true);
+    } else setIsAdmin(false);
   }, []);
 
   const logOut = () => {
@@ -27,7 +34,7 @@ function Navs() {
   return (
     <Navbar
       expand="lg"
-      className="navBar bg-main"
+      className="navBar "
       style={{ borderBottom: "1px solid" }}
     >
       <Container fluid>
@@ -79,12 +86,15 @@ function Navs() {
                 <Dropdown.Menu
                   style={{ left: "-100px", backgroundColor: "darkgray" }}
                 >
-                  <Link
-                    to={"/admin/allusers"}
-                    className="link d-block text-center my-1 hoverr text-black "
-                  >
-                    <span>Profile</span>
-                  </Link>
+                  {isAdmin ? (
+                    <Link
+                      to={"/admin/allusers"}
+                      className="link d-block text-center my-1 hoverr text-black "
+                    >
+                      <span>Profile</span>
+                    </Link>
+                  ) : null}
+
                   <Link
                     to={"/"}
                     onClick={logOut}

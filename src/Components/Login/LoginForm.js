@@ -83,9 +83,6 @@ function LoginForm() {
             </Link>
           </Col>
         </Row>
-        <Link to={"/admin/allusers"} className="link">
-          <button className="  my-3 text-main">Admin</button>
-        </Link>
       </Bounce>
       <ToastContainer />
     </Container>

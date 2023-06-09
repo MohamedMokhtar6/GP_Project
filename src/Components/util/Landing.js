@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import img from "../../Images/ml.jpg";
 
 function Landing() {
   const [user, setUser] = useState(false);
@@ -13,16 +14,14 @@ function Landing() {
 
   return (
     <>
-      <Row className="land d-flex text-center justify-content-center m-0 align-items-center bg-white">
-        <Col>
-          <div className="text-dark my-4 fw-bold  ">
+      <Row className="land d-flex text-center justify-content-center m-0 align-items-center ">
+        <Col sm="6">
+          <div className="text-white my-4 fw-bold  ">
             <h1 className="fw-bold fs-1 mb-5">Welcome to Algorfit Academy</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-              excepturi dolores illum soluta dolorem asperiores quia adipisci
-              deleniti vero. Labore laboriosam Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Est excepturi dolores illum soluta
-              dolorem asperiores quia adipisci deleniti vero. Labore laboriosam
+              Our website is an unconventional educational website that relies
+              on the practical application of what is learned, which helps in
+              understanding scientific material quickly and effectively.
             </p>
           </div>
           {user ? null : (
@@ -36,6 +35,7 @@ function Landing() {
             </Link>
           )}
         </Col>
+        <Col sm="6"></Col>
       </Row>
     </>
   );
