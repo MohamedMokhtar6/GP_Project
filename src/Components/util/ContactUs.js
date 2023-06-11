@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import img from "../../Images/contact.png";
 
 function ContactUs() {
@@ -12,7 +12,7 @@ function ContactUs() {
             <p className="fs-5 mb-2">
               We are happy to contact you with any problem or comment
             </p>
-            <img width={"500"} className="my-2" src={img} alt="Image" />
+            <img width={"500"} className="my-2" src={img} alt="img" />
           </Col>
           <Col sm="6" className="d-flex align-items-center flex-column">
             <input

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import img from "../../Images/ml.jpg";
 
 function Landing() {
   const [user, setUser] = useState(false);
 
-  const dispatch = useDispatch();
   useEffect(() => {
     if (localStorage.getItem("token") != null) setUser(true);
   }, []);
