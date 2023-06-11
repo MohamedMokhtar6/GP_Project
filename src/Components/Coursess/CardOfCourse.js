@@ -42,7 +42,6 @@ function CardOfCourse(props) {
               margin: "1rem ",
             }}
           >
-            <Typography level="h2" fontSize="lg" textColor="#000"></Typography>
             <CardCover
               sx={{
                 background:

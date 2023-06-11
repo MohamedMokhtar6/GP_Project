@@ -3,7 +3,6 @@ import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Bounce } from "react-reveal";
 import SignUpFormHook from "../../hook/signup-form-hook";
-import notify from "../../hooks/useNotification";
 import { ToastContainer } from "react-toastify";
 function SignUpForm() {
   const [

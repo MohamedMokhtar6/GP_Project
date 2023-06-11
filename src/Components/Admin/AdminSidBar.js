@@ -28,10 +28,6 @@ function AdminSidBar() {
             <Link to={"/admin/allcompetitions"}>All Competitions</Link>
           </div>
           <div>
-            <i className="fa-solid fa-road"></i>
-            <Link to={"/admin/alllearningpathes"}>All Learning Path's</Link>
-          </div>
-          <div>
             <i className="fa-solid fa-plus"></i>
             <Link to={"/admin/createuser"}>Create User</Link>
           </div>
@@ -42,10 +38,6 @@ function AdminSidBar() {
           <div>
             <i className="fa-solid fa-pen"></i>
             <Link to={"/admin/createcompetition"}>Create Competition</Link>
-          </div>
-          <div>
-            <i className="fa-solid fa-car"></i>
-            <Link to={"/admin/createlearningpath"}>Create Learning Path</Link>
           </div>
         </Col>
       </Row>

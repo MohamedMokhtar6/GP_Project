@@ -19,6 +19,8 @@ import About from "./Pages/About/About";
 import SvmPage from "./Pages/Course/CourseDetPage";
 import Tutorials from "./Components/Coursess/Tutorials";
 import CompetitionPage from "./Pages/Competition/CompetitionPage";
+import AdminUpdateUser from "./Components/Admin/AdminUpdateUser";
+import AdminUpdateUserPage from "./Pages/Admin/AdminUpdateUserPage";
 
 function App() {
   return (
@@ -38,7 +40,6 @@ function App() {
             path="/admin/allcompetitions"
             element={<AdminAllCompetitionsPage />}
           />
-
           <Route
             path="/admin/alllearningpathes"
             element={<AdminAllLearningPathsPage />}
@@ -53,13 +54,14 @@ function App() {
             path="/admin/createcompetition"
             element={<AdminCreateCompetitionPage />}
           />
+          <Route path="/admin/edituser/:id" element={<AdminUpdateUserPage />} />
+
           <Route
             path="/admin/createlearningpath"
             element={<AdminCreateLearningPathPage />}
           />
           <Route path="/admin/createquiz" element={<AdminCreateQuizPage />} />
           <Route path="/courses" element={<Tutorials />} />
-
           <Route path="/courses/:id" element={<SvmPage />} />
           <Route path="/about" element={<About />} />
         </Routes>

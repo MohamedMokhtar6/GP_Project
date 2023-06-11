@@ -5,6 +5,7 @@ import {
   LOGIN_USER,
   VERIFY_PASSWORD,
   RESET_PASSWORD,
+  LOGIN_Admin,
 } from "../type";
 
 export const loginUser = (data) => async (dispatch) => {
@@ -12,6 +13,21 @@ export const loginUser = (data) => async (dispatch) => {
     const response = await useInsertData(`/Common/Student/Login`, data);
     dispatch({
       type: LOGIN_USER,
+      payload: response,
+      loading: true,
+    });
+  } catch (e) {
+    dispatch({
+      type: LOGIN_USER,
+      payload: e.response,
+    });
+  }
+};
+export const loginAdmin = (data) => async (dispatch) => {
+  try {
+    const response = await useInsertData(`Dashboard/Admin/Login`, data);
+    dispatch({
+      type: LOGIN_Admin,
       payload: response,
       loading: true,
     });

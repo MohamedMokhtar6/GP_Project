@@ -1,5 +1,6 @@
-import { Avatar, MenuItem } from "@mui/joy";
+// import { Avatar, MenuItem } from "@mui/joy";
 import React, { useEffect, useState } from "react";
+
 import {
   Button,
   Container,
@@ -11,12 +12,20 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import img from "../../Images/avatar-06.png";
+import LoginHook from "../../hook/login-hook";
 
 function Navs() {
   const [user, setUser] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("token") != null) setUser(true);
+    if (localStorage.getItem("token") != null) {
+      setUser(true);
+      var email = localStorage.getItem("email");
+      if (email.includes("Admin") || email.includes("admin")) {
+        setIsAdmin(true);
+      } else setIsAdmin(false);
+    }
   }, []);
 
   const logOut = () => {
@@ -27,12 +36,14 @@ function Navs() {
   return (
     <Navbar
       expand="lg"
-      className="navBar bg-main"
+      className="navBar "
       style={{ borderBottom: "1px solid" }}
     >
-      <Container fluid>
+      <Container>
         <Link className="link " to={"/"}>
-          <Navbar.Brand className="text-white">Algorfit</Navbar.Brand>
+          <Navbar.Brand className="text-white text-uppercase fw-bold">
+            Algorfit
+          </Navbar.Brand>
         </Link>
         <Navbar.Toggle
           aria-controls="navbarScroll"
@@ -69,20 +80,29 @@ function Navs() {
             {user ? (
               <Dropdown>
                 <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                  <img src={img} className="userImg" />
+                  <img
+                    src={img}
+                    className="userImg"
+                    style={{ width: "2rem" }}
+                  />
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu style={{ left: "-100px" }}>
-                  <Link
-                    to={"/admin/allusers"}
-                    className="link d-block text-center my-1 hoverr "
-                  >
-                    <span>Profile</span>
-                  </Link>
+                <Dropdown.Menu
+                  style={{ left: "-100px", backgroundColor: "darkgray" }}
+                >
+                  {isAdmin ? (
+                    <Link
+                      to={"/admin/allusers"}
+                      className="link d-block text-center my-1 hoverr text-black "
+                    >
+                      <span>Profile</span>
+                    </Link>
+                  ) : null}
+
                   <Link
                     to={"/"}
                     onClick={logOut}
-                    className="link d-block text-center my-1 hoverr "
+                    className="link d-block text-center my-1 hoverr text-black "
                   >
                     <span>LogOut</span>
                   </Link>

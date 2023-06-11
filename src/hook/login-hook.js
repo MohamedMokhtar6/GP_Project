@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import notify from "../hooks/useNotification";
-import { loginUser } from "../Redux/Actions/authAction";
+import { loginAdmin, loginUser } from "../Redux/Actions/authAction";
 import { async } from "q";
-
 const LoginHook = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const res = useSelector((state) => state.authReducer.loginUser);
+  // const resAdmin = useSelector((state) => state.authReducer.loginAdmin);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,17 +47,25 @@ const LoginHook = () => {
         password,
       })
     );
+    // await dispatch(
+    //   loginAdmin({
+    //     email,
+    //     password,
+    //   })
+    // );
     setLoading(false);
     setIsPress(false);
   };
 
-  const res = useSelector((state) => state.authReducer.loginUser);
   useEffect(() => {
     if (loading === false) {
       if (res) {
         console.log(res);
+        console.log(email);
+
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("email", email);
           localStorage.setItem("user", JSON.stringify(res.data.data));
           notify("Login Succeeded", "success");
           setTimeout(() => {
@@ -64,6 +73,7 @@ const LoginHook = () => {
           }, 1500);
         } else {
           localStorage.removeItem("token");
+          localStorage.removeItem("email");
           localStorage.removeItem("user");
         }
 
@@ -74,6 +84,7 @@ const LoginHook = () => {
         ) {
           localStorage.removeItem("token");
           localStorage.removeItem("user");
+          localStorage.removeItem("email");
           notify("There was problem in Email or Password", "error");
         }
         setLoading(true);
