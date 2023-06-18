@@ -63,7 +63,9 @@ function Navs() {
             </Link>
 
             <a
-              href={"http://localhost:8501/"}
+              href={
+                "https://mohamedmokhtar6-gp-playground-streamlit-app-biu3zk.streamlit.app/"
+              }
               className="link text-main mx-2 p-1"
               target={"_blank"}
             >
