@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { createUser } from "../../Redux/Actions/userAction";
 import { ToastContainer } from "react-toastify";
-import notify from "../../hooks/useNotification";
+import notify from "../../Hooks/useNotification";
 import { TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 

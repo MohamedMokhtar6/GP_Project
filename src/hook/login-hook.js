@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import notify from "../hooks/useNotification";
+import notify from "../Hooks/useNotification";
 import { loginAdmin, loginUser } from "../Redux/Actions/authAction";
 import { async } from "q";
 const LoginHook = () => {

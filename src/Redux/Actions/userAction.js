@@ -7,10 +7,10 @@ import {
   GET_ALL_Admins,
   DELETE_Admin,
 } from "../type";
-import useDeleteData from "../../hooks/useDeleteData";
+import useDeleteData from "../../Hooks/useDeleteData";
 // import { useInsertData } from "../../Hooks/useInsertData";
-import useGetData from "../../hooks/UseGetData";
-import { useInsertData } from "../../hooks/useInsertData";
+import useGetData from "../../Hooks/UseGetData";
+import { useInsertData } from "../../Hooks/useInsertData";
 
 export const createUser = (data) => async (dispatch) => {
   console.log("from redux");

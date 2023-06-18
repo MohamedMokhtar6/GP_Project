@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { createAdmin, createUser } from "../../Redux/Actions/userAction";
 import { ToastContainer } from "react-toastify";
-import notify from "../../hooks/useNotification";
+import notify from "../../Hooks/useNotification";
 
 function AdminCreateUser() {
   const [name, setName] = useState("");

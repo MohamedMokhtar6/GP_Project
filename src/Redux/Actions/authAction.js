@@ -1,5 +1,5 @@
-import { useInsertData } from "../../hooks/useInsertData";
-import { useUpdateData } from "../../hooks/useUpdateData";
+import { useInsertData } from "../../Hooks/useInsertData";
+import { useUpdateData } from "../../Hooks/useUpdateData";
 import {
   FOREGT_PASSWORD,
   LOGIN_USER,
